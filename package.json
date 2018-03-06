@@ -1,0 +1,23 @@
+{
+  "name": "justabout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipemesina/JustAbout.git"
+  },
+  "author": "Felipe Mesina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipemesina/JustAbout/issues"
+  },
+  "homepage": "https://github.com/felipemesina/JustAbout#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.9"
+  }
+}
