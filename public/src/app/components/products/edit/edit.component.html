@@ -1,0 +1,61 @@
+<div class="container">
+  <header>
+    <h1>Edit Post</h1>
+  </header>
+  <div *ngIf="message" class="row show-hide-message">
+    <div [ngClass]="messageClass">
+      {{ message }}
+    </div>
+  </div>
+  <section>
+    <form [formGroup]="form" (submit)="updatePost()">
+      <!-- TITLE INPUT -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="form-control" autocomplete="off" formControlName="title" [(ngModel)]="product.title"/>
+        <ul class="form-text">
+          <li *ngIf="form.controls.title.errors?.required && form.controls.title.dirty">A title is required</li>
+          <li *ngIf="form.controls.title.errors?.minlength && form.controls.title.dirty || form.controls.title.errors?.maxlength && form.controls.title.dirty ">Title must be between 3-25 characters</li>
+          <li *ngIf="form.controls.title.errors?.validateTitle && form.controls.title.dirty">Title may only contain letters and numbers</li>
+        </ul>
+      </div>
+      <!-- PRICE INPUT -->
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" name="price" class="form-control" autocomplete="off" formControlName="price" [(ngModel)]="product.price"/>
+          <ul class="form-text">
+            <li *ngIf="form.controls.price.errors?.required && form.controls.price.dirty">A price is required</li>
+          </ul>
+      </div>
+      <!-- DESC INPUT -->
+      <div class="form-group">
+        <label for="desc">Description</label>
+        <select class="form-control" name="desc" formControlName="desc" [(ngModel)]="product.desc">
+          <option value="Mint Condition">Mint Condition</option>
+          <option value="Great Condition">Great Condition</option>
+          <option value="Fair Condition">Fair Condition</option>
+          <option value="Needs TLC">Needs TLC</option>
+        </select>
+          <ul class="form-text">
+            <li *ngIf="form.controls.desc.errors?.required && form.controls.desc.dirty">A description is required</li>
+          </ul>
+      </div>
+      <!-- LOCATION INPUT -->
+      <div class="form-group">
+        <label for="location">Location</label>
+          <select class="form-control" name="location" formControlName="location" [(ngModel)]="product.location">
+            <option value="San Francisco">San Francisco</option>
+            <option value="South Bay/San Jose">South Bay/San Jose</option>
+            <option value="East Bay/Oakland">East Bay/Oakland</option>
+            <option value="West Bay/San Mateo">West Bay/San Mateo</option>
+          </select>
+          <ul class="form-text">
+            <li *ngIf="form.controls.location.errors?.required && form.controls.location.dirty">A location is required</li>
+          </ul>
+      </div>
+      <!-- SUBMIT FORM -->
+      <input [disabled]="!form.valid || processing" type="submit" class="btn" value="Update" />
+    </form>
+  </section>
+
+</div>

@@ -1,0 +1,28 @@
+header{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content{
+  text-align: center;
+}
+
+.date{
+  color: #c4c4c4;
+  display: block;
+  font-size: .75em;
+}
+
+.dropdown{
+  float: left;
+  margin-right: 5px;
+}
+
+.dropdown-menu.show{
+  text-align: center;
+}
+
+.btn-warning{
+  float: right;
+  color: white;
+}

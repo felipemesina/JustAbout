@@ -1,0 +1,62 @@
+<div class="container">
+  <section>
+    <form [formGroup]="form" (submit)="onRegisterSubmit()">
+      <h2>Sign Up</h2>
+      <h6>Join to sell your stuff, contact sellers, and communicate with potential buyers.</h6>
+      <!-- USERNAME INPUT -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" class="form-control" autocomplete="off" formControlName="username" (blur)="isUsernameTaken()"/>
+        <ul class="form-text">
+          <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">Please enter a username</li>
+          <li *ngIf="form.controls.username.errors?.minlength && form.controls.username.dirty || form.controls.username.errors?.maxlength && form.controls.username.dirty ">Username must be between 3-15 characters</li>
+          <li *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">Username may only contain letters and numbers</li>
+          <li *ngIf="usernameMessage">{{ usernameMessage }}</li>
+        </ul>
+      </div>
+      <!-- EMAIL INPUT -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" name="email" class="form-control" autocomplete="off" formControlName="email" (blur)="isEmailTaken()"/>
+          <ul class="form-text">
+            <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">Please enter an email</li>
+            <li *ngIf="(form.controls.email.errors?.minlength && form.controls.email.dirty || form.controls.email.errors?.maxlength && form.controls.email.dirty ) && form.controls.email.dirty">Email must be between 10-30 characters</li>
+            <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">Invalid email format</li>
+            <li *ngIf="emailMessage">{{ emailMessage }}</li>
+          </ul>
+      </div>
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" autocomplete="off" formControlName="password" />
+          <ul class="form-text">
+            <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">Please enter a password</li>
+            <li *ngIf="form.controls.password.errors?.minlength && form.controls.password.dirty || form.controls.password.errors?.maxlength && form.controls.password.dirty ">Password must be between 8-35 characters</li>
+            <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">Password must contain at least one uppercase letter, lowercase letter, and number</li>
+          </ul>
+      </div>
+      <!-- CONIRM PASSWORD INPUT -->
+      <div class="form-group">
+        <label for="confirm">Confirm Password</label>
+          <input type="password" name="confirm" class="form-control" autocomplete="off" formControlName="confirm" />
+          <!-- Validation -->
+          <ul class="form-text">
+            <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">Please confirm password</li>
+            <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">Passwords do not match</li>
+          </ul>
+      </div>
+      <!-- ERROR/SUCCESS MESSAGES -->
+      <div class="row show-hide-message">
+        <div [ngClass]="messageClass">
+          {{ message }}
+        </div>
+      </div>
+      <!-- SUBMIT FORM -->
+      <input [disabled]="!form.valid || processing || !isEmailValid || !isUsernameValid" type="submit" class="btn" value="Sign Up" />
+      <div class="login-wrapper">
+        <small>Already a member?</small>
+        <small><a [routerLink]="['signup','login']">Log in</a></small>
+      </div>
+    </form>
+  </section>
+</div>

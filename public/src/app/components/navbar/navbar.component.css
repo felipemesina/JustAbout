@@ -1,0 +1,112 @@
+.navbar{
+  background-color: #333333;
+}
+
+.fa-bars{
+  color: white;
+  font-size: 1.25em;
+}
+
+.navbar-brand{
+  color: #027ddd;
+}
+
+.about{
+  color: orange;
+}
+
+.nav-link{
+  color: #fff;
+  font-size: .65em;
+  font-family: futura, verdana, sans-serif;
+  margin-right: 5px;
+}
+
+#logout-btn{
+  color: white;
+}
+
+#logout-btn:hover{
+  cursor: pointer;
+}
+
+.nav-link:hover{
+  color: orange;
+}
+
+button{
+  background-color: #333;
+  border: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.fa-search{
+  color: #fff;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1.10em;
+}
+
+.p-4{
+  height: 100%;
+}
+
+.searchbar-icon{
+  float: left;
+  color: #cccccc;
+  font-size: 1.85em;
+  padding: 6px 15px 0 0;
+
+}
+
+.search-input{
+  float: left;
+  height: 100%;
+  padding: 3px 15px 3px 0;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #e2e2e2;
+  width: 400px;
+  color: #ccc;
+  font-family: times, sans-serif;
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+.search-button{
+  padding: 7px 22px;
+  border-radius: 25px;
+  background-color: #91beff;
+  float: right;
+  color: #fff;
+  font-family: futura, arial, sans-serif;
+  letter-spacing: .25em;
+  margin-left: 10px;
+}
+
+.cancel-button{
+  padding: 7px 22px;
+  border-radius: 25px;
+  background-color: #f2ba6d;
+  float: right;
+  color: #fff;
+  font-family: futura, arial, sans-serif;
+  letter-spacing: .25em;
+  margin-left: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #e2e2e2;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #e2e2e2;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #e2e2e2;
+}

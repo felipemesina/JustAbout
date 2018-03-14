@@ -1,0 +1,27 @@
+<div class="container">
+  <div *ngIf="message" class="row show-hide-message">
+    <div [ngClass]="messageClass">
+      {{ message }}
+    </div>
+
+  </div>
+  <div class="text-wrapper">
+    <h2>Hello, {{ username }}</h2>
+    <p>Here are your most recent posts.</p>
+    <button type="button" class="btn btn-primary" [routerLink]="['profile','post']">Create a post</button>
+  </div>
+    <table class="table table-striped">
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.title }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.desc }}</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

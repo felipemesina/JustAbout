@@ -1,0 +1,31 @@
+<div class="container">
+  <section>
+    <form [formGroup]="form" (submit)="login()">
+      <h2>Log In</h2>
+      <!-- USERNAME INPUT -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" class="form-control" autocomplete="off" formControlName="username" />
+        <ul class="form-text">
+          <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">Please enter a username</li>
+        </ul>
+      </div>
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" autocomplete="off" formControlName="password" />
+          <ul class="form-text">
+            <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">Please enter a password</li>
+          </ul>
+      </div>
+      <!-- ERROR/SUCCESS MESSAGES -->
+      <div class="row show-hide-message">
+        <div [ngClass]="messageClass">
+          {{ message }}
+        </div>
+      </div>
+      <!-- SUBMIT FORM -->
+      <input [disabled]="processing" type="submit" class="btn" value="Log in" />
+    </form>
+  </section>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row show-hide-message" *ngIf="message">
+    <div [ngClass]="messageClass">
+      {{message}}
+    </div>
+  </div>
+  <section *ngIf="results">
+    <header>
+      <h1>{{ product.title }}</h1>
+    </header>
+    <div class="content">
+      <img src="../../assets/images/jacket.jpeg" alt="">
+      <p>${{ product.price }}</p>
+      <p>Description: {{ product.desc }}</p>
+      <p class="date">posted on: {{ product.created_at | date: "MMM dd, yyyy" }}</p>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Contact Seller
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        {{ product.created_by }}
+      </div>
+    </div>
+    <div class="buttons">
+      <a class="btn btn-info" [routerLink]="['edit/', product._id]" role="button">Edit</a>
+      <a class="btn btn-danger" [routerLink]="['delete/', product._id]" role="button">Delete</a>
+      <button type="button" class="btn btn-warning" (click)="goBack()" name="button">Back</button>
+    </div>
+  </section>
+</div>

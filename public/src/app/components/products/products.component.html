@@ -1,0 +1,14 @@
+<div class="container">
+  <section>
+    <h2>Newest Additions</h2>
+      <div *ngFor="let product of products" class="card">
+        <a [routerLink]="['post/', product._id]">
+
+        <img class="card-img-top" src="../../assets/images/jacket.jpeg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-text">{{ product.title }} - ${{ product.price }}</h5>
+        </div>
+      </a>
+      </div>
+  </section>
+</div>

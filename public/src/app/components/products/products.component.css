@@ -1,0 +1,14 @@
+section{
+  margin-top: 40px;
+}
+.card{
+  width: 250px;
+  height: auto;
+  margin: 20px 10px;
+  display: inline-block;
+}
+
+img{
+  max-width: inherit;
+  height: auto;
+}
