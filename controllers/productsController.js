@@ -10,7 +10,8 @@ module.exports = {
     if (!req.body.title ||
         !req.body.price ||
         !req.body.desc ||
-        !req.body.location
+        !req.body.location ||
+        !req.body.category
     ) {
       res.json({ success: false, message: "Please fill out all fields"});
     } else {
@@ -19,7 +20,9 @@ module.exports = {
         price: req.body.price,
         desc: req.body.desc,
         location: req.body.location,
-        created_by: req.body.created_by
+        category: req.body.category,
+        created_by: req.body.created_by,
+        image: req.file.path
       });
       product.save((err) => {
         if (err) {
@@ -33,6 +36,7 @@ module.exports = {
             res.json({ success: false, message: "Could not create post. Error: " + err });
           }
         } else {
+          console.log(product)
           res.json({ success: true, message: "Your post has been listed" });
         }
       })
@@ -118,6 +122,9 @@ module.exports = {
       if (err) {
         res.json({ success: false, message: err });
       } else {
+        if (!user) {
+          res.json({ success: false, message: 'Invalid user ID' });
+        } else {
           Product.find({ 'created_by': user.email }, (err, products) => {
             if (err) {
               res.json({ success: false, message: err });
@@ -129,7 +136,35 @@ module.exports = {
               }
             }
           });
+        }
       }
     });
   }
+  // getByCategory: function(req, res) {
+  //   if(!req.params.category) {
+  //     res.json({ success: false, message: "A category is required" });
+  //   } else {
+  //
+  //   }
+  // }
+  // uploadImageError: function(req, res, err) {
+  //     if (err) {
+  //       if (err.code === "LIMIT_FILE_SIZE") {
+  //         res.json({ success: false, message: "File size must not exceed 1MB" });
+  //       } else {
+  //         if ( err.code === "filetype" ) {
+  //           res.json({ success: false, message: "File type must be jpg, jpeg, or a png document" });
+  //         } else {
+  //           console.log(err)
+  //           res.json({ success: false, message: "Oops. An error occurred. File could not be uploaded." });
+  //         }
+  //       }
+  //     } else {
+  //       if (!req.file) {
+  //         res.json({ success: false, message: "Please select a file" });
+  //       }
+  //     } else {
+  //       res.json({ success: true, message: "Image uploaded" });
+  //     }
+  //   }
 }

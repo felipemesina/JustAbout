@@ -9,7 +9,7 @@
       <h1>{{ product.title }}</h1>
     </header>
     <div class="content">
-      <img src="../../assets/images/jacket.jpeg" alt="">
+      <img src="public/src/assets/images/{{product.image}}" alt="">
       <p>${{ product.price }}</p>
       <p>Description: {{ product.desc }}</p>
       <p class="date">posted on: {{ product.created_at | date: "MMM dd, yyyy" }}</p>
@@ -19,12 +19,13 @@
         Contact Seller
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        {{ product.created_by }}
+        <p *ngIf="_authService.ifLoggedIn()">{{ product.created_by }}</p>
+        <p *ngIf="!_authService.ifLoggedIn()">Please log in to contact seller</p>
       </div>
     </div>
     <div class="buttons">
-      <a class="btn btn-info" [routerLink]="['edit/', product._id]" role="button">Edit</a>
-      <a class="btn btn-danger" [routerLink]="['delete/', product._id]" role="button">Delete</a>
+      <a *ngIf="email === product.created_by" class="btn btn-info" [routerLink]="['edit/', product._id]" role="button">Edit</a>
+      <a *ngIf="email === product.created_by" class="btn btn-danger" [routerLink]="['delete/', product._id]" role="button">Delete</a>
       <button type="button" class="btn btn-warning" (click)="goBack()" name="button">Back</button>
     </div>
   </section>

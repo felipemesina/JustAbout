@@ -35,10 +35,12 @@ const titleValidators = [
 ];
 
 const ProductSchema = new mongoose.Schema({
-  title: { type: String, require: true, lowercase: true, validate: titleValidators },
-  price: { type: String, require: true },
-  desc: { type: String, require: true },
-  location: { type: String, require: true },
+  title: { type: String, required: true, lowercase: true, validate: titleValidators },
+  price: { type: String, required: true },
+  desc: { type: String, required: true },
+  location: { type: String, required: true },
+  category: {type: String, required: true },
+  image: { type: String, required: true },
   comments: [{
     comment: { type: String },
     commentator: { type: String }

@@ -21,11 +21,10 @@ mongoose.connect(config.uri, (err) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+app.use("/uploads", express.static("uploads"));
 app.use(express.static(__dirname + "/public/dist/"));
 app.use("/authentication", authentication);
 app.use("/products", products);
-
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/dist/index.html"));

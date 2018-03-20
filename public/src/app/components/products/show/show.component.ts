@@ -11,15 +11,13 @@ import { Location } from '@angular/common';
 })
 export class ShowComponent implements OnInit {
 
-  product = {
-    title: String,
-    price: String,
-    desc: String
-  };
+  product: String = '';
   currentUrl;
   message: String = '';
   messageClass: String = '';
   results: boolean = false;
+  username: String = '';
+  email: String = '';
 
   constructor(
     private _authService: AuthService,
@@ -43,6 +41,11 @@ export class ShowComponent implements OnInit {
           this.product = data.product;
           this.results = true;
         }
+      });
+      this._authService.getUserProfile()
+      .subscribe( profile => {
+        this.username = profile.user.username;
+        this.email = profile.user.email;
       });
   }
 

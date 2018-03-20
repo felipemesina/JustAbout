@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
 
   username: String = '';
   email: String = '';
-  products;
+  products: {};
   message: String = '';
   messageClass: String = '';
 
@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   this._productService.getPostsThatBelongToUser().subscribe(data => {
-    if (!data.successs) {
+    if (!data.success) {
       this.message = data.message;
       this.messageClass = "text-danger";
     } else {

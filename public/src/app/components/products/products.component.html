@@ -4,7 +4,7 @@
       <div *ngFor="let product of products" class="card">
         <a [routerLink]="['post/', product._id]">
 
-        <img class="card-img-top" src="../../assets/images/jacket.jpeg" alt="Card image cap">
+        <img class="card-img-top" src="public/src/assets/images/{{product.image}}" alt="{{product._id}}">
         <div class="card-body">
           <h5 class="card-text">{{ product.title }} - ${{ product.price }}</h5>
         </div>

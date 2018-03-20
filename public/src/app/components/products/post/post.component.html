@@ -46,6 +46,31 @@
             <li *ngIf="form.controls.location.errors?.required && form.controls.location.dirty">A location is required</li>
           </ul>
       </div>
+      <!-- CATEGORY INPUT -->
+      <div class="form-group">
+        <label for="category">Category</label>
+          <select class="form-control" name="category" formControlName="category">
+            <option value="Electronics">Electronics</option>
+            <option value="Music">Music</option>
+            <option value="Sports &amp; Outdoors">Sports &amp; Outdoors</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Cars &amp; Parts">Cars &amp; Parts</option>
+            <option value="Kids">Kids</option>
+            <option value="Home &amp; Garden">Home &amp; Garden</option>
+            <option value="Misc">Misc</option>
+          </select>
+          <ul class="form-text">
+            <li *ngIf="form.controls.category.errors?.required && form.controls.category.dirty">Please select a category</li>
+          </ul>
+      </div>
+      <!-- UPLOAD IMAGE INPUT -->
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" name="image" (change)="fileChange($event)" class="form-control" />
+          <!-- <ul class="form-text">
+            <li *ngIf="form.controls.image.errors?.required && form.controls.image.dirty">Please select a file</li>
+          </ul> -->
+      </div>
       <!-- ERROR/SUCCESS MESSAGES -->
       <div class="row show-hide-message">
         <div [ngClass]="messageClass">

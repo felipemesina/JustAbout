@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
   message: string = '';
   messageClass: string = '';
   processing: boolean = false;
-  email: String = '';
+  email;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -36,7 +36,9 @@ export class PostComponent implements OnInit {
       price: ['', Validators.required],
       desc: ['', Validators.required],
       location: ['', Validators.required],
-      created_by: ['']
+      category: ['', Validators.required],
+      created_by: [''],
+      imageFile: ''
       // image: [Validators.required]
   })
 }
@@ -46,6 +48,7 @@ export class PostComponent implements OnInit {
     this.form.controls['price'].disable();
     this.form.controls['desc'].disable();
     this.form.controls['location'].disable();
+    this.form.controls['category'].disable();
     // this.form.controls['image'].disable();
   }
 
@@ -55,20 +58,31 @@ export class PostComponent implements OnInit {
     this.form.controls['price'].enable();
     this.form.controls['desc'].enable();
     this.form.controls['location'].enable();
+    this.form.controls['category'].enable();
     // this.form.controls['image'].enable();
+  }
+
+  fileChange(event) {
+    console.log(event)
+  }
+
+  private prepareSave(): any {
+    let post = new FormData();
+    post.append('title', this.form.get('title').value);
+    post.append('price', this.form.get('price').value);
+    post.append('desc', this.form.get('desc').value);
+    post.append('location', this.form.get('location').value);
+    post.append('category', this.form.get('category').value);
+    post.append('created_by', this.email);
+    post.append('imageFile', this.form.get('image').value);
+    console.log(this.form.get('image').value);
+    return post;
   }
 
   postProduct() {
     this.processing = true;
     this.disableForm();
-    const post = {
-      title: this.form.get('title').value,
-      price: this.form.get('price').value,
-      desc: this.form.get('desc').value,
-      location: this.form.get('location').value,
-      // image: this.form.get('image').value
-      created_by: this.email
-    }
+    const post = this.prepareSave();
     this._productService.createPost(post)
     .subscribe( data => {
       if (!data.success) {
@@ -85,7 +99,6 @@ export class PostComponent implements OnInit {
         }, 1250);
     });
   }
-
 
   ngOnInit() {
     this._authService.getUserProfile()

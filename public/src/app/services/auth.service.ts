@@ -22,7 +22,6 @@ export class AuthService {
     this.retrieveToken();
     this.options = new RequestOptions({
       headers: new Headers({
-        "Content-Type'": "application/json",
         "authorization": this.authToken
       })
     });
