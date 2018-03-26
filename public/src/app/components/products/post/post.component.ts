@@ -16,6 +16,7 @@ export class PostComponent implements OnInit {
   messageClass: string = '';
   processing: boolean = false;
   email;
+  selectedFile;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -38,7 +39,7 @@ export class PostComponent implements OnInit {
       location: ['', Validators.required],
       category: ['', Validators.required],
       created_by: [''],
-      imageFile: ''
+      image: this.selectedFile
       // image: [Validators.required]
   })
 }
@@ -63,7 +64,7 @@ export class PostComponent implements OnInit {
   }
 
   fileChange(event) {
-    console.log(event)
+    this.selectedFile = event.target.files[0];
   }
 
   private prepareSave(): any {
@@ -74,8 +75,7 @@ export class PostComponent implements OnInit {
     post.append('location', this.form.get('location').value);
     post.append('category', this.form.get('category').value);
     post.append('created_by', this.email);
-    post.append('imageFile', this.form.get('image').value);
-    console.log(this.form.get('image').value);
+    post.append('image', this.selectedFile, this.selectedFile.name);
     return post;
   }
 

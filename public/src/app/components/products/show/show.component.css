@@ -22,7 +22,71 @@ header{
   text-align: center;
 }
 
+.btn-info{
+  float: right;
+}
+
+.btn-danger{
+  float: right;
+  margin-right: 5px;
+}
+
 .btn-warning{
   float: right;
   color: white;
+  margin-right: 5px;
+}
+
+.fa-comment-o{
+  font-size: 1.25em;
+  margin-left: .45em;
+}
+
+form{
+  text-align: center;
+}
+
+.p-4{
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2{
+  margin: 1em 1em;
+  color: #0165b7;
+  letter-spacing: -2px;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 10px;
+}
+
+.commentsBoard{
+  border: 1px solid #f2f2f2;
+  box-shadow: 5px 5px 10px #e4e4e4;
+}
+
+.commentsContainer{
+  margin-left: 30px;
+  padding-top: 40px;
+}
+
+.comment-text{
+  font-size: .88em;
+  font-family: helvetica, sans-serif;
+  font-weight: 200;
+}
+
+.eachComment{
+  padding: 6px;
+}
+
+.commentator{
+  color: #4286f4;
+  font-size: 1.25em;
+}
+
+.posted_at{
+  font-size: .70em;
+  font-family: helvetica, sans-serif;
+  color: #bdbdbb;
 }

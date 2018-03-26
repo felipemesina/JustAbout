@@ -53,6 +53,23 @@
             <li *ngIf="form.controls.location.errors?.required && form.controls.location.dirty">A location is required</li>
           </ul>
       </div>
+      <!-- CATEGORY INPUT -->
+      <div class="form-group">
+        <label for="category">Category</label>
+          <select class="form-control" name="category" formControlName="category" [(ngModel)]="product.category">
+            <option value="Electronics">Electronics</option>
+            <option value="Music">Music</option>
+            <option value="Sports &amp; Outdoors">Sports &amp; Outdoors</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Cars &amp; Parts">Cars &amp; Parts</option>
+            <option value="Kids">Kids</option>
+            <option value="Home &amp; Garden">Home &amp; Garden</option>
+            <option value="Misc">Misc</option>
+          </select>
+          <ul class="form-text">
+            <li *ngIf="form.controls.category.errors?.required && form.controls.category.dirty">Please select a category</li>
+          </ul>
+      </div>
       <!-- SUBMIT FORM -->
       <input [disabled]="!form.valid || processing" type="submit" class="btn" value="Update" />
     </form>

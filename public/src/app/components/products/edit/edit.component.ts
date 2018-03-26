@@ -42,6 +42,7 @@ export class EditComponent implements OnInit {
       price: ['', Validators.required],
       desc: ['', Validators.required],
       location: ['', Validators.required],
+      category: ['', Validators.required],
       created_by: ['']
       // image: [Validators.required]
   })
@@ -52,6 +53,7 @@ disableForm() {
   this.form.controls['price'].disable();
   this.form.controls['desc'].disable();
   this.form.controls['location'].disable();
+  this.form.controls['category'].disable();
   // this.form.controls['image'].disable();
 }
 
@@ -61,6 +63,7 @@ enableForm() {
   this.form.controls['price'].enable();
   this.form.controls['desc'].enable();
   this.form.controls['location'].enable();
+  this.form.controls['category'].enable();
   // this.form.controls['image'].enable();
 }
 
