@@ -11,7 +11,8 @@ module.exports = {
         !req.body.price ||
         !req.body.desc ||
         !req.body.location ||
-        !req.body.category
+        !req.body.category ||
+        !req.file
     ) {
       res.json({ success: false, message: "Please fill out all fields"});
     } else {
@@ -22,7 +23,7 @@ module.exports = {
         location: req.body.location,
         category: req.body.category,
         created_by: req.body.created_by,
-        image: req.file.path
+        image: req.file.filename
       });
       product.save((err) => {
         if (err) {
@@ -139,32 +140,79 @@ module.exports = {
         }
       }
     });
+  },
+  deletePost: function(req, res) {
+    if (!req.params.id) {
+      res.json({ success: false, message: "No post ID was provided" });
+    } else {
+      Product.findOne({ _id: req.params.id}, (err, product) => {
+        if (err) {
+          res.json({ success: false, message: "Not a valid post ID" });
+        } else {
+          if (!product) {
+            res.json({ success: false, message: "A post with that ID does not exist" });
+          } else {
+            User.findOne({ _id: req.decoded.userId}, (err, user) => {
+              if (err) {
+                res.json({ success: false, message: "Unauthorized access: " + err });
+              } else {
+                if (user.email !== product.created_by) {
+                  res.json({ success: false, message: "You are not authorized to delete this post" });
+                } else {
+                  product.remove((err) => {
+                    if (err) {
+                      res.json({ success: false, message: "Could not delete post: " + err });
+                    } else {
+                      res.json({ success: true, message: "Your post was deleted" });
+                    }
+                  });
+                }
+              }
+            });
+          }
+        }
+      });
+    }
+  },
+  comment: function(req, res) {
+    if (!req.body.comment) {
+      res.json({ success: false, message: "A comment is required" });
+    } else {
+      if (!req.body.id) {
+        res.json({ success: false, message: "An ID is required" });
+      } else {
+        Product.findOne({ _id: req.body.id }, (err, product) => {
+          if (err) {
+            res.json({ success: false, message: "Not a valid Post ID" });
+          } else {
+            if (!product) {
+              res.json({ success: false, message: "A Post with that ID was not found" });
+            } else {
+              User.findOne({ _id: req.decoded.userId }, (err, user) => {
+                if (err) {
+                  res.json({ success: false, message: "Oops, something went wrong: " + err });
+                } else {
+                  if (!user) {
+                    res.json({ success: false, message: "A user with that ID does not exist" });
+                  } else {
+                    product.comments.push({
+                      comment: req.body.comment,
+                      commentator: user.username
+                    });
+                    product.save((err) => {
+                      if (err) {
+                        res.json({ success: false, message: "Oops, something went wrong. We could not submit your comment" });
+                      } else {
+                        res.json({ success: true, message: "Your comment has been posted" });
+                      }
+                    })
+                  }
+                }
+              })
+            }
+          }
+        })
+      }
+    }
   }
-  // getByCategory: function(req, res) {
-  //   if(!req.params.category) {
-  //     res.json({ success: false, message: "A category is required" });
-  //   } else {
-  //
-  //   }
-  // }
-  // uploadImageError: function(req, res, err) {
-  //     if (err) {
-  //       if (err.code === "LIMIT_FILE_SIZE") {
-  //         res.json({ success: false, message: "File size must not exceed 1MB" });
-  //       } else {
-  //         if ( err.code === "filetype" ) {
-  //           res.json({ success: false, message: "File type must be jpg, jpeg, or a png document" });
-  //         } else {
-  //           console.log(err)
-  //           res.json({ success: false, message: "Oops. An error occurred. File could not be uploaded." });
-  //         }
-  //       }
-  //     } else {
-  //       if (!req.file) {
-  //         res.json({ success: false, message: "Please select a file" });
-  //       }
-  //     } else {
-  //       res.json({ success: true, message: "Image uploaded" });
-  //     }
-  //   }
 }
