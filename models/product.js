@@ -18,7 +18,7 @@ const validTitle = (title) => {
   if (!title) {
     return false;
   } else {
-    const regExp = new RegExp(/^[a-zA-Z0-9]+$/);
+    const regExp = new RegExp(/^[a-zA-Z0-9 ]+$/);
     return regExp.test(title);
   }
 };
@@ -35,7 +35,7 @@ const titleValidators = [
 ];
 
 const ProductSchema = new mongoose.Schema({
-  title: { type: String, required: true, lowercase: true, validate: titleValidators },
+  title: { type: String, required: true, validate: titleValidators },
   price: { type: String, required: true },
   desc: { type: String, required: true },
   location: { type: String, required: true },
@@ -43,11 +43,11 @@ const ProductSchema = new mongoose.Schema({
   image: { type: String, required: true },
   comments: [{
     comment: { type: String },
-    commentator: { type: String }
+    commentator: { type: String },
+    created_at: { type: Date, default: Date.now()}
   }],
-  // image: { type: String, require: true },
   created_by: { type: String },
-  created_at: { type: Date, default: Date.now() }
+  created_at: { type: Date, default: Date.now()}
 });
 
 module.exports = mongoose.model("Product", ProductSchema);

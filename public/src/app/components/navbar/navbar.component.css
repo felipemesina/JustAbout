@@ -50,21 +50,20 @@ button:hover{
   font-size: 1.10em;
 }
 
-.p-4{
-  height: 100%;
-}
-
 .searchbar-icon{
   float: left;
   color: #cccccc;
   font-size: 1.85em;
   padding: 6px 15px 0 0;
+}
 
+.p-4{
+  height: 95px;
+  background-color: white;
 }
 
 .search-input{
   float: left;
-  height: 100%;
   padding: 3px 15px 3px 0;
   border: 0;
   outline: 0;

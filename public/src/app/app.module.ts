@@ -24,6 +24,8 @@ import { PostComponent } from './components/products/post/post.component';
 import { ProductService } from './services/product.service';
 import { ShowComponent } from './components/products/show/show.component';
 import { EditComponent } from './components/products/edit/edit.component';
+import { DeleteComponent } from './components/products/delete/delete.component';
+import { FooterComponent } from './components/products/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { EditComponent } from './components/products/edit/edit.component';
     ProductsComponent,
     PostComponent,
     ShowComponent,
-    EditComponent
+    EditComponent,
+    DeleteComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

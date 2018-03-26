@@ -40,5 +40,9 @@ module.exports = (router) => {
 
   router.get("/getPostsThatBelongToUser", productsControllers.getPostsThatBelongToUser);
 
+  router.delete("/deletePost/:id", productsControllers.deletePost);
+
+  router.post("/comment", productsControllers.comment);
+
   return router;
 }

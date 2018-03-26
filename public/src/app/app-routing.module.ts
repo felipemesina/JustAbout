@@ -18,17 +18,20 @@ import { ProductsComponent } from './components/products/products.component';
 import { PostComponent } from './components/products/post/post.component';
 import { ShowComponent } from './components/products/show/show.component';
 import { EditComponent } from './components/products/edit/edit.component';
+import { DeleteComponent } from './components/products/delete/delete.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductsComponent },
   { path: 'post', component:  PostComponent},
   { path: 'post/:id',  component: ShowComponent, children: [
-    { path: 'edit/:id', redirectTo: '/edit/:id', pathMatch: 'full'}
+    { path: 'edit/:id', redirectTo: '/edit/:id', pathMatch: 'full'},
+    { path: 'delete/:id', redirectTo: '/delete/:id', pathMatch: 'full' }
   ]},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
     { path: 'profile/post',redirectTo: '/post', pathMatch: 'full'}
   ]},
   { path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard] },
+  { path: 'delete/:id', component: DeleteComponent, canActivate: [AuthGuard] },
   { path: 'electronics', component: ElectronicsComponent },
   { path: 'music', component: MusicComponent },
   { path: 'fashion', component: FashionComponent },

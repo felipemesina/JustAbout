@@ -55,4 +55,20 @@ export class ProductService {
     .map(res => res.json());
   }
 
+  deletePost(id) {
+    this.authenticateUser();
+    return this._http.delete(this.domain + "/products/deletePost/" + id, this.options)
+    .map(res => res.json());
+  }
+
+  postComment(id, comment) {
+    this.authenticateUser();
+    const commentData = {
+      id: id,
+      comment: comment
+    }
+    return this._http.post(this.domain + "/products/comment", commentData, this.options)
+    .map(res => res.json());
+  }
+
 }
