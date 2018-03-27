@@ -1,16 +1,18 @@
-<div class="container">
+<div class="container-fluid">
+  <img class="w-100" src="../../../assets/images/site_images/2020107.jpg" alt="">
+</div>
+<div class="container-fluid">
   <header>
     <h2>Newest Additions</h2>
   </header>
   <section>
-      <div *ngFor="let product of products" class="card">
-        <a [routerLink]="['post/', product._id]">
-
+    <div *ngFor="let product of products" class="card">
+      <a [routerLink]="['post/', product._id]">
         <img class="card-img-top" src="../../../assets/images/{{product.image}}" alt="{{product._id}}">
         <div class="card-body">
-          <h5 class="card-text">{{ product.title }} - ${{ product.price }}</h5>
+          <p class="card-text text-muted">${{ product.price }}</p>
         </div>
       </a>
-      </div>
+    </div>
   </section>
 </div>
