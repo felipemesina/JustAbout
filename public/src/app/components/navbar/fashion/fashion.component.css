@@ -1,0 +1,12 @@
+.container{
+  min-height: 100vh;
+}
+
+.card{
+  width: 250px;
+  min-height: 250px;
+  max-height: 250px;
+  margin: 10px 10px;
+  display: inline-block;
+  border: none;
+}

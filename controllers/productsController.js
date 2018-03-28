@@ -23,8 +23,9 @@ module.exports = {
         location: req.body.location,
         category: req.body.category,
         created_by: req.body.created_by,
-        image: req.file.filename
+        image: req.file.path
       });
+      console.log(req.file)
       product.save((err) => {
         if (err) {
           if (err.errors) {
@@ -37,7 +38,6 @@ module.exports = {
             res.json({ success: false, message: "Could not create post. Error: " + err });
           }
         } else {
-          console.log(product)
           res.json({ success: true, message: "Your post has been listed" });
         }
       })
@@ -213,6 +213,19 @@ module.exports = {
           }
         })
       }
+    }
+  },
+  getProductsByCategory: function(req, res) {
+    if (!req.params.category_name) {
+      res.json({ success: false, message: "No category was provided" });
+    } else {
+      Product.find({"category": req.params.category_name}, (err, products) => {
+        if (err) {
+          res.json({ success: false, message: "Sorry, products in that category do not exist" });
+        } else {
+          res.json({ success: true, products: products });
+        }
+      })
     }
   }
 }

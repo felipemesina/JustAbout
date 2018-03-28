@@ -36,14 +36,15 @@ const routes: Routes = [
   { path: 'music', component: MusicComponent },
   { path: 'fashion', component: FashionComponent },
   { path: 'sports&outdoors', component: SportsOutdoorsComponent },
-  { path: 'kids', component: KidsComponent },
+  { path: 'Kids', component: KidsComponent },
   { path: 'home&garden', component: HomeGardenComponent },
   { path: 'cars&parts', component: CarsPartsComponent },
   { path: 'misc', component: MiscComponent },
   { path: 'signup', component: SignupComponent, canActivate: [NotAuthGuard], children: [
     { path: 'signup/login',redirectTo: '/login', pathMatch: 'full'}
   ] },
-  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard]}
+  { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard]},
+  { path: 'category/:category_name', redirectTo: ':category_name', pathMatch: 'full' }
 
 
 ];
