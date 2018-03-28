@@ -8,7 +8,7 @@
   <section>
     <div *ngFor="let product of products" class="card">
       <a [routerLink]="['post/', product._id]">
-        <img class="card-img-top" src="../../../assets/images/{{product.image}}" alt="{{product._id}}">
+        <img class="card-img-top" src="{{product.image}}" alt="{{product._id}}">
         <div class="card-body">
           <p class="card-text text-muted">${{ product.price }}</p>
         </div>

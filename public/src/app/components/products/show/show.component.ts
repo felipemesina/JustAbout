@@ -79,13 +79,13 @@ export class ShowComponent implements OnInit {
 
   ngOnInit() {
     this.currentUrl = this._activatedRoute.snapshot.params;
-    console.log(this.currentUrl)
     this._productService.getPostById(this.currentUrl.id).subscribe(
       data => {
         if (!data.success) {
           this.message = data.message;
           this.messageClass = "text-danger";
         } else {
+          console.log(data.product.image)
           this.product = data.product;
           this.results = true;
         }
