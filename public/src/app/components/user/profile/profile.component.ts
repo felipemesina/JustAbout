@@ -20,18 +20,6 @@ export class ProfileComponent implements OnInit {
     private _productService: ProductService
   ) { }
 
-  // getPostsThatBelongToUser() {
-  //   this._productService.getPostsThatBelongToUser()
-  //   .subscribe(data => {
-  //     if (!data.successs) {
-  //       this.message = data.message;
-  //       this.messageClass = "text-danger";
-  //     } else {
-  //       this.products = data.products;
-  //     }
-  //   });
-  // }
-
   ngOnInit() {
   this._productService.getPostsThatBelongToUser().subscribe(data => {
     if (!data.success) {

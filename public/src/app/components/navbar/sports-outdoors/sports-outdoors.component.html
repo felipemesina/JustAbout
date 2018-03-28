@@ -1,3 +1,11 @@
 <div class="container">
   <h2>Sports &amp; Outdoors</h2>
+  <div class="container">
+    <div class="card" *ngFor="let product of products">
+      <img class="card-img-top" src="../../../assets/images/{{product.image}}" alt="{{product._id}}">
+      <div class="card-body">
+        <p class="card-text text-muted">${{ product.price }}</p>
+      </div>
+    </div>
+  </div>
 </div>

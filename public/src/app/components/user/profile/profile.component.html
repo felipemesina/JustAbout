@@ -11,11 +11,25 @@
     <button type="button" class="btn btn-primary" [routerLink]="['profile','post']">Create a post</button>
   </div>
     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col" class="expendable">Price</th>
+          <th scope="col" class="expendable">Description</th>
+          <th scope="col">Image</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
       <tbody>
         <tr *ngFor="let product of products">
           <td>{{ product.title }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.desc }}</td>
+          <td class="expendable">{{ product.price }}</td>
+          <td class="expendable">{{ product.desc }}</td>
+          <td><img src="{{product.image}}" alt=""></td>
+          <td>
+            <a class="btn btn-danger" [routerLink]="['delete/', product._id]" role="button">Delete</a>
+            <a class="btn btn-info" [routerLink]="['edit/', product._id]" role="button">Edit</a>
+          </td>
         </tr>
     </tbody>
   </table>

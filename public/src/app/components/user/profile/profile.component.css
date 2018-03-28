@@ -9,4 +9,20 @@ p{
 
 .btn{
   float: right;
+  margin: 0 0 7px 7px;
+}
+
+img{
+  max-width: 165px;
+  height: auto;
+}
+
+@media screen and (max-width: 640px) {
+    .expendable {
+      display: none;
+    }
+    img{
+      max-width: 120px;
+      height: auto;
+    }
 }
