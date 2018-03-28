@@ -5,10 +5,10 @@ const multer = require("multer");
 //Storage Engine
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, "./public/src/assets/images/");
+    cb(null, "uploads/");
   },
   filename: function(req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname);
+    cb(null, file.fieldname + "-" + Date.now() + file.originalname);
   }
 });
 
@@ -43,6 +43,15 @@ module.exports = (router) => {
   router.delete("/deletePost/:id", productsControllers.deletePost);
 
   router.post("/comment", productsControllers.comment);
+
+  /*
+  LOCATED IN THE AUTHENTICATION ROUTES FILE TO BY PASS AUTHENTICATION MIDDLEWARE
+  router.get("/getPosts", productsController.getPosts);
+
+  router.get("/getPostById/:id", productsController.getPostById);
+
+  router.get("/:category_name", productsController.getProductsByCategory);
+  */
 
   return router;
 }

@@ -17,6 +17,8 @@ module.exports = (router) => {
 
   router.get("/getPostById/:id", productsController.getPostById);
 
+  router.get("/category/:category_name", productsController.getProductsByCategory);
+
   router.use( UserControllers.authenticateUser);
 
   router.get("/profile", UserControllers.profile);

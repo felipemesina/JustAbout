@@ -21,7 +21,7 @@ mongoose.connect(config.uri, (err) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/public/src/assets/images/", express.static("images"));
+app.use("/uploads", express.static("uploads"));
 app.use(express.static(__dirname + "/public/dist/"));
 app.use("/authentication", authentication);
 app.use("/products", products);

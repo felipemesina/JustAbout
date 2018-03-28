@@ -71,4 +71,9 @@ export class ProductService {
     .map(res => res.json());
   }
 
+  getProductsByCategory(category_name) {
+    return this._http.get(this.domain + "/authentication/category/" + category_name)
+    .map(res => res.json());
+  }
+
 }
