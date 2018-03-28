@@ -21,10 +21,20 @@ h2{
   font-family: futura, arial, sans-serif;
 }
 
-.btn{
+.btn-post{
   margin: 0 auto;
-  display: block;
+  display: inline-block;
   background-color: #00bde8;
+  color: white;
+  padding: 5px 15px;
+  font-family: helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.btn-custom{
+  margin: 0 auto;
+  display: inline-block;
+  background-color: orange;
   color: white;
   padding: 5px 15px;
   font-family: helvetica, sans-serif;

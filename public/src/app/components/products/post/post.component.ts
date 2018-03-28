@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-post',
@@ -22,7 +23,8 @@ export class PostComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _authService: AuthService,
     private _productService: ProductService,
-    private _router: Router
+    private _router: Router,
+    private _location: Location
   ) {
     this.createForm();
   }
@@ -61,6 +63,10 @@ export class PostComponent implements OnInit {
     this.form.controls['location'].enable();
     this.form.controls['category'].enable();
     // this.form.controls['image'].enable();
+  }
+
+  goBack() {
+  this._location.back();
   }
 
   fileChange(event) {

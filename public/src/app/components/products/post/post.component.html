@@ -50,14 +50,14 @@
       <div class="form-group">
         <label for="category">Category</label>
           <select class="form-control" name="category" formControlName="category">
-            <option value="Electronics">Electronics</option>
-            <option value="Music">Music</option>
-            <option value="Sports &amp; Outdoors">Sports &amp; Outdoors</option>
-            <option value="Fashion">Fashion</option>
-            <option value="Cars &amp; Parts">Cars &amp; Parts</option>
-            <option value="Kids">Kids</option>
-            <option value="Home &amp; Garden">Home &amp; Garden</option>
-            <option value="Misc">Misc</option>
+            <option value="electronics">Electronics</option>
+            <option value="music">Music</option>
+            <option value="sports&amp;outdoors">Sports &amp; Outdoors</option>
+            <option value="fashion">Fashion</option>
+            <option value="cars&amp;parts">Cars &amp; Parts</option>
+            <option value="kids">Kids</option>
+            <option value="home&amp;garden">Home &amp; Garden</option>
+            <option value="misc">Misc</option>
           </select>
           <ul class="form-text">
             <li *ngIf="form.controls.category.errors?.required && form.controls.category.dirty">Please select a category</li>
@@ -78,7 +78,8 @@
         </div>
       </div>
       <!-- SUBMIT FORM -->
-      <input [disabled]="!form.valid || processing" type="submit" class="btn" value="Post" />
+      <input [disabled]="!form.valid || processing" type="submit" class="btn btn-post" value="Post" />
+      <button type="button" class="btn btn-custom" (click)="goBack()" name="button">Back</button>
     </form>
   </section>
 </div>

@@ -79,6 +79,7 @@ export class ShowComponent implements OnInit {
 
   ngOnInit() {
     this.currentUrl = this._activatedRoute.snapshot.params;
+    console.log(this.currentUrl)
     this._productService.getPostById(this.currentUrl.id).subscribe(
       data => {
         if (!data.success) {
