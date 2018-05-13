@@ -37,7 +37,7 @@
       <div class="collapse" id="commentsField">
         <div class="p-4">
           <div *ngIf="!_authService.ifLoggedIn()" class="notSignedIn">
-            <p>Please sign in to post a comment</p>
+            <p>Please log in to post a comment</p>
           </div>
           <form [formGroup]="commentForm" *ngIf="_authService.ifLoggedIn()">
             <textarea class="form-control" name="comment" rows="3" cols="40" formControlName="comment"></textarea>

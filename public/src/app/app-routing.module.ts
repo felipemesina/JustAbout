@@ -19,6 +19,7 @@ import { PostComponent } from './components/products/post/post.component';
 import { ShowComponent } from './components/products/show/show.component';
 import { EditComponent } from './components/products/edit/edit.component';
 import { DeleteComponent } from './components/products/delete/delete.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductsComponent },
@@ -32,20 +33,38 @@ const routes: Routes = [
   ]},
   { path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard] },
   { path: 'delete/:id', component: DeleteComponent, canActivate: [AuthGuard] },
-  { path: 'electronics', component: ElectronicsComponent },
-  { path: 'music', component: MusicComponent },
-  { path: 'fashion', component: FashionComponent },
-  { path: 'sports&outdoors', component: SportsOutdoorsComponent },
-  { path: 'Kids', component: KidsComponent },
-  { path: 'home&garden', component: HomeGardenComponent },
-  { path: 'cars&parts', component: CarsPartsComponent },
-  { path: 'misc', component: MiscComponent },
+  { path: 'electronics', component: ElectronicsComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'music', component: MusicComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'fashion', component: FashionComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'sports&outdoors', component: SportsOutdoorsComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'kids', component: KidsComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'home&garden', component: HomeGardenComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'cars&parts', component: CarsPartsComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
+  { path: 'misc', component: MiscComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]},
   { path: 'signup', component: SignupComponent, canActivate: [NotAuthGuard], children: [
     { path: 'signup/login',redirectTo: '/login', pathMatch: 'full'}
   ] },
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard]},
-  { path: 'category/:category_name', redirectTo: ':category_name', pathMatch: 'full' }
-
+  { path: 'category/:category_name', redirectTo: ':category_name', pathMatch: 'full' },
+  {  path: 'search', component: SearchComponent, children: [
+    { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
+  ]}
 
 ];
 

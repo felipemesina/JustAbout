@@ -1,0 +1,25 @@
+.container{
+  min-height: 65vh;
+}
+
+.card-container{
+  margin-top: 25px;
+}
+
+.card{
+  width: 250px;
+  min-height: 250px;
+  max-height: 250px;
+  margin: 10px 10px;
+  display: inline-block;
+  border: none;
+}
+
+.card-text{
+  line-height: 10px;
+}
+
+img{
+  max-width: inherit;
+  height: auto;
+}

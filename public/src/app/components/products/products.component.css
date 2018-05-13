@@ -31,20 +31,40 @@ h2:after{
   position: absolute;
   margin-top: 5px;
 }
-.card-container{
-  margin-top: 25px;
-}
 
 .card{
   width: 250px;
   min-height: 250px;
-  max-height: 250px;
+  max-height: 330px;
   margin: 10px 10px;
+  padding: 0 0 15px 8px;
   display: inline-block;
-  border: none;
+  border: 1px solid #ededed;
 }
 
-img{
-  max-width: inherit;
-  height: auto;
+.card-text{
+  line-height: 10px;
+  font-size: .9em;
+}
+
+.text-color{
+  color: #000;
+}
+
+.price{
+  font-size: 12px;
+  line-height: 8px;
+  vertical-align: top;
+}
+
+.banner{
+  width: 100%;
+}
+
+.card-img-top{
+    max-width: inherit;
+    max-height: 250px;
+    min-height: 250px;
+    object-fit: scale-down;
+    padding: 10px;
 }

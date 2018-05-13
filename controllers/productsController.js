@@ -3,6 +3,9 @@ const Product = mongoose.model("Product");
 const config = require("../config/database");
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 
 module.exports = {
@@ -25,7 +28,6 @@ module.exports = {
         created_by: req.body.created_by,
         image: req.file.path
       });
-      console.log(req.file)
       product.save((err) => {
         if (err) {
           if (err.errors) {
@@ -227,5 +229,23 @@ module.exports = {
         }
       })
     }
-  }
+  },
+  search: function(req, res) {
+    if (!req.query || req.query === undefined || req.query === '') {
+      res.json({ success: false, message: "Please enter something" })
+    } else {
+      const regex = new RegExp(escapeRegex(req.query.query), 'gi');
+      Product.find({title: regex}, (err, products) => {
+        if (err) {
+          res.json({ success: false, message: "Uh-oh. Something went wrong: " + err });
+        } else {
+          if (!products) {
+            res.json({ success: false, message: "No results matched your search. Please try something different" });
+          } else {
+            res.json({ success: true, products: products });
+          }
+        }
+      })
+    }
+  },
 }

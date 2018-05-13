@@ -55,10 +55,13 @@
     <div class="p-4">
       <form>
         <i class="fa fa-search searchbar-icon"></i>
-        <input type="text" class="search-input">
+        <input type="search" name="keyword" placeholder="search..." onclick="this.value=''" [(ngModel)]="keyword" class="search-input">
       </form>
-      <button class="search-button " type="submit">CANCEL</button>
-      <button class="cancel-button " type="submit">SEARCH</button>
+      <button class="search-button" data-toggle="collapse" data-target="#searchBar" type="submit">CANCEL</button>
+      <button class="cancel-button " type="submit" (click)="search()">SEARCH</button>
+    </div>
+    <div [ngClass]="messageClass">
+      {{ message }}
     </div>
   </div>
 </div>

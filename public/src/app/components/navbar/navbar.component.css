@@ -57,6 +57,10 @@ button:hover{
   padding: 6px 15px 0 0;
 }
 
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: white !important;
+}
+
 .p-4{
   height: 95px;
   background-color: white;

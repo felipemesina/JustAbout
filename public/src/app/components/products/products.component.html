@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <img class="w-100" src="../../../assets/images/site_images/2020107.jpg" alt="">
+  <img class="w-100 banner" src="../../../assets/images/site_images/2020107.jpg" alt="">
 </div>
 <div class="container-fluid">
   <header>
@@ -9,9 +9,8 @@
     <div *ngFor="let product of products" class="card">
       <a [routerLink]="['post/', product._id]">
         <img class="card-img-top" src="{{product.image}}" alt="{{product._id}}">
-        <div class="card-body">
-          <p class="card-text text-muted">${{ product.price }}</p>
-        </div>
+          <p class="card-text">{{ product.title }}</p>
+          <p class="card-text text-color"><span class="price">$</span>{{ product.price }}</p>
       </a>
     </div>
   </section>

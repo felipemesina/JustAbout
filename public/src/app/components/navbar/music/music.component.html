@@ -1,11 +1,14 @@
-<div class="container">
-  <h2>Music</h2>
-  <div class="container">
-    <div class="card" *ngFor="let product of products">
-      <img class="card-img-top" src="../../../assets/images/{{product.image}}" alt="{{product._id}}">
+<header>
+  <img class="banner" src="../../../assets/images/site_images/electronics.jpg" alt="">
+</header>
+<div class="container-fluid">
+  <div class="card" *ngFor="let product of products">
+    <a [routerLink]="['post/', product._id]">
+      <img class="card-img-top" src="{{product.image}}" alt="{{product._id}}">
       <div class="card-body">
-        <p class="card-text text-muted">${{ product.price }}</p>
+        <p class="card-text">{{ product.title }}</p>
+        <p class="card-text text-color">${{ product.price }}</p>
       </div>
-    </div>
+    </a>
   </div>
 </div>
