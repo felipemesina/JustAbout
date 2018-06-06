@@ -1,6 +1,8 @@
 .container-fluid{
   padding: 0;
   margin: 0;
+  background-color: #ededed;
+  padding-bottom: 30px;
 }
 
 header{
@@ -39,7 +41,7 @@ h2:after{
   margin: 6px 6px;
   padding: 0 0 15px 8px;
   display: inline-block;
-  border: 1px solid #ededed;
+  border: none;
 }
 
 .card-text{

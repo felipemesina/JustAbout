@@ -1,5 +1,6 @@
-.container{
-  min-height: 100vh;
+.container-fluid{
+  background-color: #ededed;
+  padding: 6px 6px 30px 6px;
 }
 
 .card{
@@ -7,7 +8,7 @@
   min-height: 250px;
   max-height: 330px;
   margin: 6px 6px;
-  padding: 0 0 15px 8px;
+  padding-bottom: 10px;
   display: inline-block;
   border: none;
 }
@@ -15,6 +16,7 @@
 .card-text{
   line-height: 10px;
   font-size: .9em;
+  text-align: center;
 }
 
   .text-color{
@@ -29,7 +31,6 @@
 
   .banner{
   width: 100%;
-  margin-bottom: 6px;
   }
 
   .card-img-top{
