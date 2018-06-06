@@ -6,10 +6,10 @@
   width: 250px;
   min-height: 250px;
   max-height: 330px;
-  margin: 10px 10px;
+  margin: 6px 6px;
   padding: 0 0 15px 8px;
   display: inline-block;
-  border: 1px solid #ededed;
+  border: none;
 }
 
 .card-text{
@@ -29,6 +29,7 @@
 
   .banner{
   width: 100%;
+  margin-bottom: 6px;
   }
 
   .card-img-top{

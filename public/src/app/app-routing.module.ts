@@ -20,6 +20,7 @@ import { ShowComponent } from './components/products/show/show.component';
 import { EditComponent } from './components/products/edit/edit.component';
 import { DeleteComponent } from './components/products/delete/delete.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchDetailComponent } from './components/search-detail/search-detail.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductsComponent },
@@ -64,7 +65,8 @@ const routes: Routes = [
   { path: 'category/:category_name', redirectTo: ':category_name', pathMatch: 'full' },
   {  path: 'search', component: SearchComponent, children: [
     { path: 'post/:id', redirectTo: '/post/:id', pathMatch: 'full' }
-  ]}
+  ]},
+  { path: 'searchDetail', component: SearchDetailComponent}
 
 ];
 

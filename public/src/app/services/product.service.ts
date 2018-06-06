@@ -80,5 +80,4 @@ export class ProductService {
     return this._http.get(this.domain + "/authentication/search", {params: { query: searchTerm}})
     .map(res => res.json());
   }
-
 }

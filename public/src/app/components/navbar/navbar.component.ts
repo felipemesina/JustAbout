@@ -14,11 +14,14 @@ export class NavbarComponent implements OnInit {
   message: String = '';
   messageClass: String = '';
   keyword;
+  products;
+  query;
+  qString;
 
   constructor(
     private _authService: AuthService,
     private _productService: ProductService,
-    private _route: ActivatedRoute,
+    private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }
 
@@ -28,22 +31,23 @@ export class NavbarComponent implements OnInit {
   }
 
   search(){
-    if (this.keyword) {
-        this._router.navigate(["/search", {query: this.keyword }])
-    } else {
-      this.message = "Please enter the name of the item you want to search for"
-    }
-  }
-
-  changeSearch($event) {
-    if (this.keyword) {
-        this._router.navigate(["/search", {query: this.keyword }])
-    } else {
-      this.message = "Please enter the name of the item you want to search for"
-    }
+    this._productService.search(this.keyword)
+    .subscribe( data => {
+      if (data.success) {
+        this._router.navigate(["/searchDetail", {query: this.keyword}])
+      }
+       else {
+         this.message = data.message;
+         this.messageClass = "text-danger";
+       }
+    })
   }
 
   ngOnInit() {
+    // this._route.params
+    // .subscribe( params => {
+    //   this.query = params['query'];
+    // })
   }
 
 }

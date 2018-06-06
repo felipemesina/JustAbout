@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit {
   messageClass: String = '';
   products;
   query;
+  qString;
 
   constructor(
     private _route: ActivatedRoute,
@@ -25,6 +26,7 @@ export class SearchComponent implements OnInit {
     this._route.params
     .subscribe( params => {
       this.query = params['query'];
+      console.log(this.query)
     })
     this._productService.search(this.query)
     .subscribe( data => {
@@ -33,9 +35,13 @@ export class SearchComponent implements OnInit {
         this.messageClass = "text-danger";
       } else {
         this.products = data.products;
+        this.query = null;
       }
     })
 
   }
+
+  //DO A SEARCH COMPONENT FOR GRABBING query
+  //DO A SEARCH DETAIL COMPONENT TO DISPLAY RESULTS 
 
 }

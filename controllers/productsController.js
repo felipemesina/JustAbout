@@ -231,7 +231,7 @@ module.exports = {
     }
   },
   search: function(req, res) {
-    if (!req.query || req.query === undefined || req.query === '') {
+    if (!req.query.query || req.query.query === undefined || req.query.query === '') {
       res.json({ success: false, message: "Please enter something" })
     } else {
       const regex = new RegExp(escapeRegex(req.query.query), 'gi');

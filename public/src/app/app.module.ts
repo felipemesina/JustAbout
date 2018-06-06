@@ -27,6 +27,7 @@ import { EditComponent } from './components/products/edit/edit.component';
 import { DeleteComponent } from './components/products/delete/delete.component';
 import { FooterComponent } from './components/products/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
+import { SearchDetailComponent } from './components/search-detail/search-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SearchComponent } from './components/search/search.component';
     EditComponent,
     DeleteComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    SearchDetailComponent
   ],
   imports: [
     BrowserModule,
