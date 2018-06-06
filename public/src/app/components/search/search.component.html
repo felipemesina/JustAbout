@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div *ngFor="let product of products" class="card">
     <a [routerLink]="['post', product._id]">
       <img class="card-img-top" src="{{product.image}}" alt="{{product._id}}">

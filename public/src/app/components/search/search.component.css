@@ -1,5 +1,7 @@
-.container{
-  min-height: 65vh;
+
+.container-fluid{
+  background-color: #ededed;
+  padding: 6px 6px 30px 6px;
 }
 
 .card-container{
@@ -11,14 +13,15 @@
   min-height: 250px;
   max-height: 330px;
   margin: 6px 6px;
-  padding: 0 0 15px 8px;
+  padding-bottom: 10px;
   display: inline-block;
-  border: 1px solid #ededed;
+  border: none;
 }
 
 .card-text{
   line-height: 10px;
   font-size: .9em;
+  text-align: center;
 }
 
 .card-img-top{
