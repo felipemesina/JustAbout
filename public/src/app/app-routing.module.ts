@@ -30,7 +30,9 @@ const routes: Routes = [
     { path: 'delete/:id', redirectTo: '/delete/:id', pathMatch: 'full' }
   ]},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
-    { path: 'profile/post',redirectTo: '/post', pathMatch: 'full'}
+    { path: 'profile/post', redirectTo: '/post', pathMatch: 'full'},
+    { path: 'edit/:id', redirectTo: '/edit/:id', pathMatch: 'full'},
+    { path: 'delete/:id', redirectTo: '/delete/:id', pathMatch: 'full'}
   ]},
   { path: 'edit/:id', component: EditComponent, canActivate: [AuthGuard] },
   { path: 'delete/:id', component: DeleteComponent, canActivate: [AuthGuard] },
