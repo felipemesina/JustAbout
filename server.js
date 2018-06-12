@@ -8,6 +8,7 @@ const authentication = require("./routes/authentication")(router);
 const products = require("./routes/products")(router);
 const bodyParser = require("body-parser");
 
+
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
   if (err) {
@@ -21,8 +22,12 @@ mongoose.connect(config.uri, (err) => {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Image Uploads
 app.use("/uploads", express.static("uploads"));
+
 app.use(express.static(__dirname + "/public/dist/"));
+
+//API
 app.use("/authentication", authentication);
 app.use("/products", products);
 
