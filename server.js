@@ -35,6 +35,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/dist/index.html"));
 });
 
-app.listen(3200, () => {
+app.listen(8080, () => {
   console.log("Server is listening on port 3200");
 });
