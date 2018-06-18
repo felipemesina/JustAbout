@@ -7,6 +7,7 @@ const path = require("path");
 const authentication = require("./routes/authentication")(router);
 const products = require("./routes/products")(router);
 const bodyParser = require("body-parser");
+const port = process.env.PORT || 4567;
 
 
 mongoose.Promise = global.Promise;
@@ -35,6 +36,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/dist/index.html"));
 });
 
-app.listen(4567, () => {
-  console.log("Server is listening on port 3200");
+app.listen(port, () => {
+  console.log("Server is listening on port" + port);
 });
