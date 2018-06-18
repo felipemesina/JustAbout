@@ -2194,19 +2194,19 @@ var AuthService = /** @class */ (function () {
         this.authToken = localStorage.getItem("token");
     };
     AuthService.prototype.signUp = function (user) {
-        return this._http.post("authentication/signUp", user)
+        return this._http.post(this.domain + "authentication/signUp", user)
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.isUsernameAvailable = function (username) {
-        return this._http.get("authentication/isUsernameAvailable/" + username)
+        return this._http.get(this.domain + "authentication/isUsernameAvailable/" + username)
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.isEmailAvailable = function (email) {
-        return this._http.get("authentication/isEmailAvailable/" + email)
+        return this._http.get(this.domain + "authentication/isEmailAvailable/" + email)
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.login = function (user) {
-        return this._http.post("authentication/login", user)
+        return this._http.post(this.domain + "authentication/login", user)
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.logout = function () {
@@ -2222,7 +2222,7 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.getUserProfile = function () {
         this.authenticateUser();
-        return this._http.get("authentication/profile", this.options)
+        return this._http.get(this.domain + "authentication/profile", this.options)
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.ifLoggedIn = function () {
@@ -2276,30 +2276,30 @@ var ProductService = /** @class */ (function () {
     };
     ProductService.prototype.createPost = function (post) {
         this.authenticateUser();
-        return this._http.post("products/createPost", post, this.options)
+        return this._http.post(this.domain + "products/createPost", post, this.options)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getPosts = function () {
-        return this._http.get("authentication/getPosts")
+        return this._http.get(this.domain + "authentication/getPosts")
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getPostById = function (id) {
-        return this._http.get("authentication/getPostById/" + id)
+        return this._http.get(this.domain + "authentication/getPostById/" + id)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.updatePost = function (product) {
         this.authenticateUser();
-        return this._http.put("products/updatePost", product, this.options)
+        return this._http.put(this.domain + "products/updatePost", product, this.options)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getPostsThatBelongToUser = function () {
         this.authenticateUser();
-        return this._http.get("products/getPostsThatBelongToUser", this.options)
+        return this._http.get(this.domain + "products/getPostsThatBelongToUser", this.options)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.deletePost = function (id) {
         this.authenticateUser();
-        return this._http.delete("products/deletePost/" + id, this.options)
+        return this._http.delete(this.domain + "products/deletePost/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.postComment = function (id, comment) {
@@ -2308,15 +2308,15 @@ var ProductService = /** @class */ (function () {
             id: id,
             comment: comment
         };
-        return this._http.post("products/comment", commentData, this.options)
+        return this._http.post(this.domain + "products/comment", commentData, this.options)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.getProductsByCategory = function (category_name) {
-        return this._http.get("authentication/category/" + category_name)
+        return this._http.get(this.domain + "authentication/category/" + category_name)
             .map(function (res) { return res.json(); });
     };
     ProductService.prototype.search = function (searchTerm) {
-        return this._http.get("authentication/search", { params: { query: searchTerm } })
+        return this._http.get(this.domain + "authentication/search", { params: { query: searchTerm } })
             .map(function (res) { return res.json(); });
     };
     ProductService = __decorate([

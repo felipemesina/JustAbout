@@ -8,6 +8,7 @@ import { tokenNotExpired } from "angular2-jwt";
 @Injectable()
 export class AuthService {
 
+  domain: "";
   authToken;
   user;
   options;
@@ -31,22 +32,22 @@ export class AuthService {
   }
 
   signUp(user) {
-    return this._http.post("authentication/signUp", user)
+    return this._http.post(this.domain + "authentication/signUp", user)
     .map( res => res.json());
   }
 
   isUsernameAvailable(username) {
-    return this._http.get("authentication/isUsernameAvailable/" + username)
+    return this._http.get(this.domain + "authentication/isUsernameAvailable/" + username)
     .map( res => res.json());
   }
 
   isEmailAvailable(email){
-    return this._http.get("authentication/isEmailAvailable/" + email)
+    return this._http.get(this.domain + "authentication/isEmailAvailable/" + email)
     .map( res => res.json());
   }
 
   login(user) {
-    return this._http.post("authentication/login", user)
+    return this._http.post(this.domain + "authentication/login", user)
     .map( res => res.json());
   }
 
@@ -65,7 +66,7 @@ export class AuthService {
 
   getUserProfile() {
     this.authenticateUser();
-    return this._http.get("authentication/profile", this.options)
+    return this._http.get(this.domain + "authentication/profile", this.options)
     .map( res => res.json());
   }
 
