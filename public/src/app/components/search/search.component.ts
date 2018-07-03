@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _productService: ProductService
+    public _productService: ProductService
   ) { }
 
   ngOnInit() {
@@ -42,6 +42,6 @@ export class SearchComponent implements OnInit {
   }
 
   //DO A SEARCH COMPONENT FOR GRABBING query
-  //DO A SEARCH DETAIL COMPONENT TO DISPLAY RESULTS 
+  //DO A SEARCH DETAIL COMPONENT TO DISPLAY RESULTS
 
 }

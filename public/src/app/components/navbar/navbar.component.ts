@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit {
   qString;
 
   constructor(
-    private _authService: AuthService,
-    private _productService: ProductService,
+    public _authService: AuthService,
+    public _productService: ProductService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }
@@ -44,10 +44,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this._route.params
-    // .subscribe( params => {
-    //   this.query = params['query'];
-    // })
   }
 
 }

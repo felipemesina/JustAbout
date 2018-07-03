@@ -11,7 +11,7 @@ export class ProductsComponent implements OnInit {
   products: String = '';
 
   constructor(
-    private _productService: ProductService
+    public _productService: ProductService
   ) { }
 
   getPosts() {

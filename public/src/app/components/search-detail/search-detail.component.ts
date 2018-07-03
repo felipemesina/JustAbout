@@ -19,7 +19,7 @@ export class SearchDetailComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _productService: ProductService,
+    public _productService: ProductService,
     private _router: Router
 
   ) { }

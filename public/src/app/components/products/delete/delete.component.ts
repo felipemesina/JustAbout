@@ -19,8 +19,8 @@ export class DeleteComponent implements OnInit {
 
   constructor(
     private _location: Location,
-    private _authService: AuthService,
-    private _productService: ProductService,
+    public _authService: AuthService,
+    public _productService: ProductService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }

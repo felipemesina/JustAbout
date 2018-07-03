@@ -21,8 +21,8 @@ export class PostComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _authService: AuthService,
-    private _productService: ProductService,
+    public _authService: AuthService,
+    public _productService: ProductService,
     private _router: Router,
     private _location: Location
   ) {

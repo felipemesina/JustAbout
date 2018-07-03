@@ -16,8 +16,8 @@ export class ProfileComponent implements OnInit {
   messageClass: String = '';
 
   constructor(
-    private _authService: AuthService,
-    private _productService: ProductService
+    public _authService: AuthService,
+    public _productService: ProductService
   ) { }
 
   ngOnInit() {
