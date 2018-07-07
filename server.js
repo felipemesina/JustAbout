@@ -11,11 +11,11 @@ const port = process.env.PORT || 4567;
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.uri, (err) => {
+mongoose.connect(config.database, { useMongoClient: true}, (err) => {
   if (err) {
     console.log("Server Problem: ", err);
   } else {
-    console.log("Connection Successful. Connected to " + config.uri);
+    console.log("Connection Successful. Connected to " + config.database);
   }
 });
 
