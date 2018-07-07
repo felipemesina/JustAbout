@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class ProductService {
 
+  domain = "http://54.67.97.38/"
   options;
 
   constructor(
@@ -32,7 +33,7 @@ export class ProductService {
   }
 
   getPosts() {
-    return this._http.get("/authentication/getPosts")
+    return this._http.get(this.domain + "authentication/getPosts")
     .map(res => res.json());
   }
 

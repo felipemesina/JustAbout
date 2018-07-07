@@ -8,6 +8,7 @@ import { tokenNotExpired } from "angular2-jwt";
 @Injectable()
 export class AuthService {
 
+  domain = "http://54.67.97.38/"
   authToken;
   user;
   options;
@@ -46,7 +47,7 @@ export class AuthService {
   }
 
   login(user) {
-    return this._http.post("/authentication/login", user)
+    return this._http.post(this.domain + "authentication/login", user)
     .map( res => res.json());
   }
 
