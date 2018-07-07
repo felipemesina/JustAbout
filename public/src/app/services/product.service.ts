@@ -32,7 +32,7 @@ export class ProductService {
   }
 
   getPosts() {
-    return this._http.get("authentication/getPosts")
+    return this._http.get("/authentication/getPosts")
     .map(res => res.json());
   }
 

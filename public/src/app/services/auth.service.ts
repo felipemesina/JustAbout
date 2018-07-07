@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   login(user) {
-    return this._http.post("authentication/login", user)
+    return this._http.post("/authentication/login", user)
     .map( res => res.json());
   }
 
