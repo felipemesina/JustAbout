@@ -52,7 +52,7 @@
         </div>
       </div>
       <!-- SUBMIT FORM -->
-      <input [disabled]="!form.valid || processing || !isEmailValid || !isUsernameValid" type="submit" class="btn" value="Sign Up" />
+      <input [disabled]="!form.valid || processing" type="submit" class="btn" value="Sign Up" />
       <div class="login-wrapper">
         <small>Already a member?</small>
         <small><a [routerLink]="['signup','login']">Log in</a></small>
