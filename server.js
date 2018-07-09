@@ -11,9 +11,7 @@ const port = process.env.PORT || 4567;
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.uri,
-  { useMongoClient: true},
-   (err) => {
+mongoose.connect(config.uri, (err) => {
   if (err) {
     console.log("Server Problem: ", err);
   } else {
