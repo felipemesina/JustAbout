@@ -33,6 +33,7 @@ export class ProductService {
   }
 
   getPosts() {
+    console.log("this is the Product Service...")
     return this._http.get(this.domain + "authentication/getPosts")
     .map(res => res.json());
   }

@@ -46,6 +46,7 @@ module.exports = {
     }
   },
   getPosts: function(req, res) {
+    console.log("This is the Products Controller...")
     Product.find({}, (err, products) => {
       if (err) {
         res.json({ success: false, message: err });
