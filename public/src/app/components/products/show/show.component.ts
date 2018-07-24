@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ShowComponent implements OnInit {
 
-  product: String = '';
+  product;
   currentUrl;
   message: String = '';
   messageClass: String = '';

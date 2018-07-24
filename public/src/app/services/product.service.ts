@@ -11,7 +11,7 @@ export class ProductService {
   options;
 
   constructor(
-    public _http: Http, //make this public????
+    private _http: Http, //make this public????
     private _router: Router,
     public _authService: AuthService
   ) { }
