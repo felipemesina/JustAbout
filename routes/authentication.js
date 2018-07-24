@@ -2,9 +2,6 @@ const User = require("../models/user");
 const Product = require("../models/product");
 const UserControllers = require("../controllers/UserControllers");
 const productsController = require("../controllers/productsController");
-const consFunc = function(){
-  console.log("this is the authentication service...")
-}
 
 module.exports = (router) => {
 
@@ -16,7 +13,7 @@ module.exports = (router) => {
 
   router.post("/login", UserControllers.login);
 
-  router.get("/getPosts", consFunc, productsController.getPosts);
+  router.get("/getPosts", productsController.getPosts);
 
   router.get("/getPostById/:id", productsController.getPostById);
 
