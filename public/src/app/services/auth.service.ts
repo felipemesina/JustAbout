@@ -17,19 +17,6 @@ export class AuthService {
     private _router: Router
   ) { }
 
-  authenticateUser() {
-    this.retrieveToken();
-    this.options = new RequestOptions({
-      headers: new Headers({
-        "authorization": this.authToken
-      })
-    });
-  }
-
-  retrieveToken() {
-    this.authToken = localStorage.getItem("token");
-  }
-
   signUp(user) {
     return this._http.post("authentication/signUp", user)
     .map( res => res.json());
@@ -61,6 +48,19 @@ export class AuthService {
     localStorage.setItem("user", JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  authenticateUser() {
+    this.retrieveToken();
+    this.options = new RequestOptions({
+      headers: new Headers({
+        "authorization": this.authToken
+      })
+    });
+  }
+
+  retrieveToken() {
+    this.authToken = localStorage.getItem("token");
   }
 
   getUserProfile() {
