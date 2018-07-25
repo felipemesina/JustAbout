@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class PostComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   message: string = '';
   messageClass: string = '';
   processing: boolean = false;
@@ -21,8 +21,8 @@ export class PostComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    public _authService: AuthService,
-    public _productService: ProductService,
+    private _authService: AuthService,
+    private _productService: ProductService,
     private _router: Router,
     private _location: Location
   ) {

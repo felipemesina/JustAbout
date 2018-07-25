@@ -11,7 +11,7 @@ import { AuthGuard } from '../../../guards/auth.guard';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   message: string = '';
   messageClass: string = '';
   processing: boolean = false;
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    public _authService: AuthService,
+    private _authService: AuthService,
     private _router: Router,
     private _authGuard: AuthGuard
   ) {

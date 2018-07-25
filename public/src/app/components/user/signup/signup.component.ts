@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  form: FormGroup;
+  form;
   message: string = '';
   messageClass: string = '';
   processing: boolean = false;
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    public _authService: AuthService,
+    private _authService: AuthService,
     private _router: Router
   ) {
     this.createForm();

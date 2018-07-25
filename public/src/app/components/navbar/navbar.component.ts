@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public _authService: AuthService,
-    public _productService: ProductService,
+    private _productService: ProductService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }

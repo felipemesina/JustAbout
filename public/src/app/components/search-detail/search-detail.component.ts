@@ -19,7 +19,7 @@ export class SearchDetailComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    public _productService: ProductService,
+    private _productService: ProductService,
     private _router: Router
 
   ) { }
@@ -28,7 +28,6 @@ export class SearchDetailComponent implements OnInit {
     this._route.params
     .subscribe( params => {
       this.query = params['query'];
-      console.log(this.query)
     })
     this._productService.search(this.query)
     .subscribe( data => {

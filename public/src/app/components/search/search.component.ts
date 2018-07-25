@@ -19,14 +19,13 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    public _productService: ProductService
+    private _productService: ProductService
   ) { }
 
   ngOnInit() {
     this._route.params
     .subscribe( params => {
       this.query = params['query'];
-      console.log(this.query)
     })
     this._productService.search(this.query)
     .subscribe( data => {
@@ -40,8 +39,4 @@ export class SearchComponent implements OnInit {
     })
 
   }
-
-  //DO A SEARCH COMPONENT FOR GRABBING query
-  //DO A SEARCH DETAIL COMPONENT TO DISPLAY RESULTS
-
 }

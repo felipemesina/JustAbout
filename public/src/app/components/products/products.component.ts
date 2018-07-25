@@ -8,7 +8,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsComponent implements OnInit {
 
-  products: String = '';
+  products;
 
   constructor(
     public _productService: ProductService
