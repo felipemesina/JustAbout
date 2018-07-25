@@ -110,7 +110,7 @@ module.exports = {
     const token = req.headers['authorization'];
     console.log(token);
     if (!token) {
-      res.json({ success: false, message: "No token was provided" });
+      res.json({ success: false, message: "No token was provided!!!" });
     } else {
       jwt.verify(token, config.secret, (err, decoded) => {
         if (err) {
