@@ -11,9 +11,9 @@ export class ProductService {
   options;
 
   constructor(
-    private _http: Http, //make this public????
+    private _http: Http,
     private _router: Router,
-    public _authService: AuthService
+    private _authService: AuthService
   ) { }
 
   authenticateUser() {

@@ -34,15 +34,15 @@ const upload = multer({
 
 module.exports = (router) => {
 
-  router.post("/createPost", upload.single('image'), productsControllers.createPost);
+  router.post("createPost", upload.single('image'), productsControllers.createPost);
 
-  router.put("/updatePost", productsControllers.updatePost);
+  router.put("updatePost", productsControllers.updatePost);
 
-  router.get("/getPostsThatBelongToUser", productsControllers.getPostsThatBelongToUser);
+  router.get("getPostsThatBelongToUser", productsControllers.getPostsThatBelongToUser);
 
-  router.delete("/deletePost/:id", productsControllers.deletePost);
+  router.delete("deletePost/:id", productsControllers.deletePost);
 
-  router.post("/comment", productsControllers.comment);
+  router.post("comment", productsControllers.comment);
 
   /*
   LOCATED IN THE AUTHENTICATION ROUTES FILE TO BY PASS AUTHENTICATION MIDDLEWARE
