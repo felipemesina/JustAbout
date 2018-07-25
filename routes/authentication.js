@@ -5,25 +5,25 @@ const productsController = require("../controllers/productsController");
 
 module.exports = (router) => {
 
-  router.post("/signUp", UserControllers.signup);
+  router.post("signUp", UserControllers.signup);
 
-  router.get("/isUsernameAvailable/:username", UserControllers.isUsernameAvailable);
+  router.get("isUsernameAvailable/:username", UserControllers.isUsernameAvailable);
 
-  router.get("/isEmailAvailable/:email", UserControllers.isEmailAvailable);
+  router.get("isEmailAvailable/:email", UserControllers.isEmailAvailable);
 
-  router.post("/login", UserControllers.login);
+  router.post("login", UserControllers.login);
 
-  router.get("/getPosts", productsController.getPosts);
+  router.get("getPosts", productsController.getPosts);
 
-  router.get("/getPostById/:id", productsController.getPostById);
+  router.get("getPostById/:id", productsController.getPostById);
 
-  router.get("/category/:category_name", productsController.getProductsByCategory);
+  router.get("category/:category_name", productsController.getProductsByCategory);
 
-  router.get("/search", productsController.search);
+  router.get("search", productsController.search);
 
   router.use( UserControllers.authenticateUser);
 
-  router.get("/profile", UserControllers.profile);
+  router.get("profile", UserControllers.profile);
 
   return router;
 }
