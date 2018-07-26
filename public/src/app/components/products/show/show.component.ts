@@ -26,7 +26,7 @@ export class ShowComponent implements OnInit {
   commentMessage: String = '';
 
   constructor(
-    private _authService: AuthService,
+    public _authService: AuthService,
     private _productService: ProductService,
     private _activatedRoute: ActivatedRoute,
     private _location: Location,
