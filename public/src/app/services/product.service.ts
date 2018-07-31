@@ -16,6 +16,18 @@ export class ProductService {
     private _authService: AuthService
   ) { }
 
+
+  getPosts() {
+    console.log("this is the Product Service...")
+    return this._http.get("authentication/getPosts")
+    .map(res => res.json());
+  }
+
+  getPostById(id) {
+    return this._http.get("authentication/getPostById/" + id)
+    .map(res => res.json());
+  }
+
   authenticateUser() {
   this._authService.retrieveToken();
   this.options = new RequestOptions({
@@ -28,17 +40,6 @@ export class ProductService {
   createPost(post) {
     this.authenticateUser();
     return this._http.post("products/createPost", post, this.options)
-    .map(res => res.json());
-  }
-
-  getPosts() {
-    console.log("this is the Product Service...")
-    return this._http.get("authentication/getPosts")
-    .map(res => res.json());
-  }
-
-  getPostById(id) {
-    return this._http.get("authentication/getPostById/" + id)
     .map(res => res.json());
   }
 
