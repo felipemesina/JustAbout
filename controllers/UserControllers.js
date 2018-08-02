@@ -108,6 +108,7 @@ module.exports = {
   authenticateUser: function(req, res, next) {
     console.log("This is the authentication controller...")
     const token = req.headers['authorization'];
+    console.log(jwt);
     console.log(token);
     if (!token) {
       res.json({ success: false, message: "No token was provided!!!" });
