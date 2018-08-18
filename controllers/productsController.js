@@ -46,7 +46,6 @@ module.exports = {
     }
   },
   getPosts: function(req, res) {
-    console.log("This is the Products Controller...")
     Product.find({}, (err, products) => {
       if (err) {
         res.json({ success: false, message: err });
@@ -57,7 +56,7 @@ module.exports = {
           res.json({ success: true, products: products });
         }
       }
-    }).sort({ 'created_at': -1 });
+    })
   },
   getPostById: function(req, res) {
     if (!req.params.id) {
