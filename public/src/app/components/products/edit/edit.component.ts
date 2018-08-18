@@ -87,6 +87,10 @@ updatePost() {
   });
 }
 
+goBack() {
+this._location.back();
+}
+
   ngOnInit() {
     this.currentUrl = this._activatedRoute.snapshot.params;
     this._productService.getPostById(this.currentUrl.id).subscribe(

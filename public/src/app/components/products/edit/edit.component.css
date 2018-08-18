@@ -36,6 +36,12 @@ h2{
   font-weight: 100;
 }
 
+.btn-warning{
+  float: right;
+  color: white;
+  margin-right: 5px;
+}
+
 .form-text{
   font-size: .85em;
   color: #474747;
