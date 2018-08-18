@@ -7,7 +7,7 @@ const path = require("path");
 const authentication = require("./routes/authentication")(router);
 const products = require("./routes/products")(router);
 const bodyParser = require("body-parser");
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 
 mongoose.Promise = global.Promise;
