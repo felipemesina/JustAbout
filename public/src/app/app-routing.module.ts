@@ -23,7 +23,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchDetailComponent } from './components/search-detail/search-detail.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: ProductsComponent },
+  { path: '', component: ProductsComponent, pathMatch: 'full' },
   { path: 'post', component:  PostComponent},
   { path: 'post/:id',  component: ShowComponent, children: [
     { path: 'edit/:id', redirectTo: '/edit/:id', pathMatch: 'full'},

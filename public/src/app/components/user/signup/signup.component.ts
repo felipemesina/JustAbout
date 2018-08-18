@@ -120,6 +120,7 @@ export class SignupComponent implements OnInit {
   }
 
   onRegisterSubmit() {
+    console.log("This is the user signup function");
     this.processing = true;
     this.disableForm();
     const user = {

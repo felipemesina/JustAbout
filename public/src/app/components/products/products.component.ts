@@ -9,15 +9,23 @@ import { ProductService } from '../../services/product.service';
 export class ProductsComponent implements OnInit {
 
   products;
+  message;
+  messageClass;
 
   constructor(
-    public _productService: ProductService
+    private _productService: ProductService
   ) { }
 
   getPosts() {
+    console.log("this is the products component")
     this._productService.getPosts()
     .subscribe(data => {
-      this.products = data.products
+      if (!data.success) {
+        this.message = data.message;
+        this.messageClass = "text-danger";
+      } else {
+        this.products = data.products;
+      }
     });
   }
 

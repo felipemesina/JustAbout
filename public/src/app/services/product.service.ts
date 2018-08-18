@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class ProductService {
 
+  domain = this._authService.domain;
   options;
 
   constructor(
@@ -16,15 +17,13 @@ export class ProductService {
     private _authService: AuthService
   ) { }
 
-
   getPosts() {
-    console.log("this is the Product Service...")
-    return this._http.get("authentication/getPosts")
+    return this._http.get(this.domain + "authentication/getPosts")
     .map(res => res.json());
   }
 
   getPostById(id) {
-    return this._http.get("authentication/getPostById/" + id)
+    return this._http.get(this.domain + "authentication/getPostById/" + id)
     .map(res => res.json());
   }
 
@@ -39,25 +38,25 @@ export class ProductService {
 
   createPost(post) {
     this.authenticateUser();
-    return this._http.post("products/createPost", post, this.options)
+    return this._http.post(this.domain + "products/createPost", post, this.options)
     .map(res => res.json());
   }
 
   updatePost(product) {
     this.authenticateUser();
-    return this._http.put("products/updatePost", product, this.options)
+    return this._http.put(this.domain + "products/updatePost", product, this.options)
     .map(res => res.json());
   }
 
   getPostsThatBelongToUser() {
     this.authenticateUser();
-    return this._http.get("products/getPostsThatBelongToUser", this.options)
+    return this._http.get(this.domain + "products/getPostsThatBelongToUser", this.options)
     .map(res => res.json());
   }
 
   deletePost(id) {
     this.authenticateUser();
-    return this._http.delete("products/deletePost/" + id, this.options)
+    return this._http.delete(this.domain + "products/deletePost/" + id, this.options)
     .map(res => res.json());
   }
 
@@ -67,17 +66,17 @@ export class ProductService {
       id: id,
       comment: comment
     }
-    return this._http.post("products/comment", commentData, this.options)
+    return this._http.post(this.domain + "products/comment", commentData, this.options)
     .map(res => res.json());
   }
 
   getProductsByCategory(category_name) {
-    return this._http.get("authentication/category/" + category_name)
+    return this._http.get(this.domain + "authentication/category/" + category_name)
     .map(res => res.json());
   }
 
   search(searchTerm) {
-    return this._http.get("authentication/search", {params: { query: searchTerm}})
+    return this._http.get(this.domain + "authentication/search", {params: { query: searchTerm}})
     .map(res => res.json());
   }
 }

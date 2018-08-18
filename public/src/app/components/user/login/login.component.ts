@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log("this is the login fucntion")
     this.processing = true;
     this.disableForm();
     const user = {
