@@ -56,7 +56,7 @@ module.exports = {
           res.json({ success: true, products: products });
         }
       }
-    }).sort({'_id': -1})
+    }).sort({'created_at': -1})
   },
   getPostById: function(req, res) {
     if (!req.params.id) {
