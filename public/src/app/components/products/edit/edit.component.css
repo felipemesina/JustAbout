@@ -28,7 +28,7 @@ h2{
 
 .btn{
   margin: 0 auto;
-  display: block;
+  /*display: block;*/
   background-color: #00bde8;
   color: white;
   padding: 5px 15px;
@@ -39,7 +39,7 @@ h2{
 .btn-warning{
   float: right;
   color: white;
-  margin-right: 5px;
+  background-color: #ffc107 !important;
 }
 
 .form-text{
