@@ -1,4 +1,9 @@
 <div class="container-fluid">
+  <div *ngIf="message" class="row show-hide-message">
+    <div [ngClass]="messageClass">
+      {{ message }}
+    </div>
+  </div>
   <div *ngFor="let product of products" class="card">
     <a [routerLink]="['post', product._id]">
       <img class="card-img-top" src="{{product.image}}" alt="{{product._id}}">
